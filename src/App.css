@@ -1,38 +1,169 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.weather {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
+  padding-bottom: 20px;
+  min-height: 100vh;
+
+  /* background-image: linear-gradient(#fff0, #0002, #0004); */
+}
+.weather::after {
+  content: '';
+  
+  position: absolute;
+  
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  
+  filter: brightness(.8);
+  background-size: cover;
+  background-position: center;
+  
+  z-index: -1;
+
+  transition: background-image .2s ease-out;
+}
+#cold::after {
+  background-image: url('https://i.ytimg.com/vi/yWYBIYD4JNo/maxresdefault.jpg');
+}
+#warm::after {
+  background-image: url('https://blog.spoongraphics.co.uk/wp-content/uploads/2015/11/thumbnail9.jpg');
 }
 
-.App-link {
-  color: #61dafb;
+.weather-content-wrapper {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+  max-width: 430px;
+
+  text-align: center;
+
+  text-shadow: 1px 1px 1px #0009;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.weather__search {
+  display: inline-block;
+
+  margin-bottom: 120px;
+  height: 56px;
+  width: 100%;
+  
+  border: none;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 3px 1px #2227;
+  outline: none;
+
+  background-color: #fffe;
+  
+  font-size: 2rem;
+  
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.weather__location, .weather__description {
+  text-transform: capitalize;
+}
+
+.weather__location {
+  font-size: 3rem;
+}
+
+.weather__date {
+  margin-bottom: 20px;
+  
+  font-weight: normal;
+  font-style: italic;
+}
+
+.weather__temperature {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 6px 30px 26px;
+  width: 70%;
+  
+  border-radius: 25px;
+  background-color: #fff5;
+  box-shadow: 3px 3px 1px #2227;
+
+  transition: transform .2s;
+}
+.weather__temperature:hover {
+  transform: scale(1.05);
+  transition: transform .2s;
+
+  cursor: default;
+}
+
+.weather__temperature__degrees {
+  font-size: 9rem;
+  text-shadow: 2px 2px 1px #000;
+}
+
+.weather__temperature__feels-like {  
+  font-weight: normal;
+}
+
+.weather__description {
+  margin-bottom: 100px;
+}
+
+.links__github {
+  display: block;
+}
+
+.links__github img {
+  margin-bottom: 10px;
+  width: 53px;
+
+  filter: invert(1);
+
+  opacity: .9;
+  transition: transform .2s;
+}
+
+.links__github img:hover {
+  transform: scale(1.05);
+  transition: transform .2s;
+}
+
+.links__web-portfolio {
+  font-size: 1.6rem;
+  
+  color: inherit;
+  
+  opacity: .9;
+  transition: font-weight .1s;
+}
+.links__web-portfolio:hover {
+  font-weight: bold;
+  transition: font-weight .1s;
+}
+
+
+
+
+@media screen and (max-width: 425px) {
+  .weather__temperature {
+    width: 80%;
+    max-width: 232px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .weather__temperature__degrees {
+    font-size: 7rem;
+    text-shadow: 2px 2px 1px #000;
+  }
+
+  .weather__description {
+    margin-bottom: 150px;
+  }
+
+  .links__github img {
+    width: 43px;
   }
 }
